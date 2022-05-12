@@ -4,9 +4,7 @@ TODO: Add a codecov badge for the main branch here.  What's shown is an example,
 
 [![codecov](https://codecov.io/gh/ucsb-cs156-s22/STARTER-team03/branch/main/graph/badge.svg?token=s3OvSANaki)](https://codecov.io/gh/ucsb-cs156-s22/STARTER-team03)
 
-TODO: Add a link to the deployed Heroku app for your team here, e.g.
-
-* <https://s22-7pm-3-team02.herokuapp.com>
+* Production deployment: <https://s22-6pm-1-team02.herokuapp.com>  
 
 TODO: Add correct links to the -docs and -docs qa GitHub pages sites
 
