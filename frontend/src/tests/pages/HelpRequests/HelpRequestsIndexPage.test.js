@@ -9,7 +9,7 @@ import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 // import { helpRequestsFixtures } from "fixtures/helpRequestsFixtures";
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
-import mockConsole from "jest-mock-console";
+// import mockConsole from "jest-mock-console";
 
 
 const mockToast = jest.fn();
@@ -26,7 +26,7 @@ describe("HelpRequestsIndexPage tests", () => {
 
     const axiosMock =new AxiosMockAdapter(axios);
 
-    const testId = "HelpRequestsTable";
+    // const testId = "HelpRequestsTable";
 
     const setupUserOnly = () => {
         axiosMock.reset();
