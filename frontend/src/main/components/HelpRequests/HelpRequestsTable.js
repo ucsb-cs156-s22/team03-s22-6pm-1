@@ -35,10 +35,10 @@ export default function HelpRequestsTable({ helpRequests, _currentUser }) {
         },
         {
             Header: 'Team ID',
-            accessor: 'teamID',
+            accessor: 'teamId',
         },
         {
-            Header: 'Table Or BreakoutRoom',
+            Header: 'Table or Breakout Room',
             accessor: 'tableOrBreakoutRoom',
         },
         {
