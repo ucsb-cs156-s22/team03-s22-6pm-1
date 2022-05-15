@@ -87,9 +87,9 @@ describe("UCSBMenuItemsIndexPage tests", () => {
             </QueryClientProvider>
         );
 
-        await waitFor(  () => { expect(getByTestId(`${testId}-cell-row-0-col-diningCommonsCode`)).toHaveTextContent("de-la-guerra"); } );
-        expect(getByTestId(`${testId}-cell-row-1-col-diningCommonsCode`)).toHaveTextContent("ortega");
-        expect(getByTestId(`${testId}-cell-row-2-col-diningCommonsCode`)).toHaveTextContent("carrillo");
+        await waitFor(  () => { expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("0"); } );
+        expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("1");
+        expect(getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("2");
 
     });
 
@@ -106,9 +106,9 @@ describe("UCSBMenuItemsIndexPage tests", () => {
             </QueryClientProvider>
         );
 
-        await waitFor(() => { expect(getByTestId(`${testId}-cell-row-0-col-diningCommonsCode`)).toHaveTextContent("de-la-guerra"); });
-        expect(getByTestId(`${testId}-cell-row-1-col-diningCommonsCode`)).toHaveTextContent("ortega");
-        expect(getByTestId(`${testId}-cell-row-2-col-diningCommonsCode`)).toHaveTextContent("carrillo");
+        await waitFor(() => { expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("0"); });
+        expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("1");
+        expect(getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("2");
 
     });
 
@@ -135,7 +135,7 @@ describe("UCSBMenuItemsIndexPage tests", () => {
           expect(header).toBeInTheDocument();
         });
 
-        expect(queryByTestId(`${testId}-cell-row-0-col-diningCommonsCode`)).not.toBeInTheDocument();
+        expect(queryByTestId(`${testId}-cell-row-0-col-id`)).not.toBeInTheDocument();
     });
 
     // test("test what happens when you click delete, admin", async () => {
