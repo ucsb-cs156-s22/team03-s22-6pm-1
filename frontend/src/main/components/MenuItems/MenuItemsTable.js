@@ -30,12 +30,12 @@ export default function MenuItemsTable({ menuItems, currentUser }) {
 
     const columns = [
         {
-            Header: 'Dining Commons Code',
-            accessor: 'diningCommonsCode', // accessor is the "key" in the data
-        },
-        {
             Header: 'ID',
             accessor: 'id',
+        },
+        {
+            Header: 'Dining Commons Code',
+            accessor: 'diningCommonsCode', // accessor is the "key" in the data
         },
         {
             Header: 'Name',

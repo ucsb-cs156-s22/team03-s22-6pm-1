@@ -69,8 +69,8 @@ describe("MenuItemsTable tests", () => {
     );
 
 
-    const expectedHeaders = ['Dining Commons Code',  'ID', 'Name','Station'];
-    const expectedFields = ['diningCommonsCode', 'id','name', 'station'];
+    const expectedHeaders = ['ID', 'Dining Commons Code', 'Name','Station'];
+    const expectedFields = ['id', 'diningCommonsCode', 'name', 'station'];
     const testId = "MenuItemsTable";
 
     expectedHeaders.forEach((headerText) => {
