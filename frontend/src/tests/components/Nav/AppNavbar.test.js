@@ -257,7 +257,7 @@ describe("AppNavbar tests", () => {
         const aElement = dropdown.querySelector("a");
         expect(aElement).toBeInTheDocument();
         aElement?.click();
-        await waitFor( () => expect(getByTestId(/appnavbar-menu-items-dropdown/)).toBeInTheDocument() );
+        await waitFor( () => expect(getByTestId(/appnavbar-menu-items-list/)).toBeInTheDocument() );
 
     });
 });
