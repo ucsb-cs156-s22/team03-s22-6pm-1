@@ -16,7 +16,7 @@ export default function HelpRequestsTable({ helpRequests, currentUser }) {
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
-        ["/api/HelpRequest/all"]
+        //["/api/HelpRequest/all"]
     );
     // Stryker enable all 
 
