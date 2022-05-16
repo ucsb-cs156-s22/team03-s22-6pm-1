@@ -57,10 +57,12 @@ export default function HelpRequestsTable({ helpRequests, currentUser }) {
         }
     ];
 
+    const testid = "HelpRequestsTable";
+
     const columnsIfAdmin = [
         ...columns,
         // ButtonColumn("Edit", "primary", editCallback, "HelpRequestsTable"),
-        ButtonColumn("Delete", "danger", deleteCallback, "HelpRequestsTable")
+        ButtonColumn("Delete", "danger", deleteCallback, testid)
     ];
 
     const columnsToDisplay = hasRole(currentUser, "ROLE_ADMIN") ? columnsIfAdmin : columns;
@@ -68,6 +70,6 @@ export default function HelpRequestsTable({ helpRequests, currentUser }) {
     return <OurTable
         data={helpRequests}
         columns={columnsToDisplay}
-        testid={"HelpRequestsTable"}
+        testid={testid}
     />;
 };

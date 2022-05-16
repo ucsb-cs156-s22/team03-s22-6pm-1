@@ -87,7 +87,7 @@ describe("HelpRequestsTable tests", () => {
     expect(getByTestId(`${testId}-cell-row-1-col-requesterEmail`)).toHaveTextContent("111@321.99999");
     expect(getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("Is there a final for this class");
     expect(getByTestId(`${testId}-cell-row-1-col-explanation`)).toHaveTextContent("Are alien real");
-    expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(2);
+    expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(0);
     expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(3);
     expect(getByTestId(`${testId}-cell-row-0-col-teamId`)).toHaveTextContent("59");
     expect(getByTestId(`${testId}-cell-row-1-col-teamId`)).toHaveTextContent("51");
