@@ -114,7 +114,7 @@ describe("HelpRequestsIndexPage tests", () => {
         const queryClient = new QueryClient();
         axiosMock.onGet("/api/HelpRequest/all").timeout();
 
-        const { queryByTestId } = render(
+        const { queryByTestId, getByText } = render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
                     <HelpRequestsIndexPage />
@@ -123,6 +123,13 @@ describe("HelpRequestsIndexPage tests", () => {
         );
 
         await waitFor(() => { expect(axiosMock.history.get.length).toBeGreaterThanOrEqual(3); });
+
+        const expectedHeaders = ['id',  'Requester\'s Email', 'Team ID','Table or Breakout Room','Request Time','Explanation','Solved?'];
+    
+        expectedHeaders.forEach((headerText) => {
+          const header = getByText(headerText);
+          expect(header).toBeInTheDocument();
+        });
 
         expect(queryByTestId(`${testId}-cell-row-0-col-id`)).not.toBeInTheDocument();
     });
