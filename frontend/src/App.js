@@ -10,6 +10,7 @@ import TodosEditPage from "main/pages/Todos/TodosEditPage";
 import HelpRequestsIndexPage from "main/pages/HelpRequests/HelpRequestsIndexPage";
 import DiningCommonsIndexPage from "main/pages/DiningCommons/DiningCommonsIndexPage";
 
+import RecommendationIndexPage from "main/pages/Recommendation/RecommendationIndexPage";
 import MenuItemsIndexPage from "main/pages/MenuItems/MenuItemsIndexPage";
 
 import UCSBDatesIndexPage from "main/pages/UCSBDates/UCSBDatesIndexPage";
@@ -72,6 +73,13 @@ function App() {
           )
         }
         {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/recommendation/list" element={<RecommendationIndexPage />} />
+            </>
+          )
+        }
+        {
           hasRole(currentUser, "ROLE_ADMIN") && (
             <>
               <Route exact path="/ucsbdates/edit/:id" element={<UCSBDatesEditPage />} />
@@ -79,6 +87,7 @@ function App() {
             </>
           )
         }
+        
 
       </Routes>
     </BrowserRouter>
