@@ -55,6 +55,7 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                   </NavDropdown>
                 )
               }
+
               {
                 hasRole(currentUser, "ROLE_USER") && (
                   <NavDropdown title="Reviews" id="appnavbar-review-dropdown" data-testid="appnavbar-review-dropdown" >
@@ -62,6 +63,7 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                   </NavDropdown>
                 )
               }
+              
               {
                 hasRole(currentUser, "ROLE_USER") && (
                   <NavDropdown title="Help Requests" id="appnavbar-help-requests-dropdown" data-testid="appnavbar-help-requests-dropdown" >
