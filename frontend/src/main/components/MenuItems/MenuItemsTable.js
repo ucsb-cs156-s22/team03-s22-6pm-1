@@ -1,19 +1,8 @@
 import OurTable, { ButtonColumn } from "main/components/OurTable";
 import { useBackendMutation } from "main/utils/useBackend";
-import { onDeleteSuccess } from "main/utils/UCSBDateUtils"
+import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/MenuItemsUtils"
 // import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
-
-
-export function cellToAxiosParamsDelete(cell) {
-    return {
-        url: "/api/UCSBDiningCommonsMenuItem",
-        method: "DELETE",
-        params: {
-            id: cell.row.values.id
-        }
-    }
-}
 
 export default function MenuItemsTable({ menuItems, currentUser }) {
 
