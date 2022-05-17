@@ -9,6 +9,8 @@ import TodosEditPage from "main/pages/Todos/TodosEditPage";
 
 import DiningCommonsIndexPage from "main/pages/DiningCommons/DiningCommonsIndexPage";
 
+import OrganizationsIndexPage from "main/pages/Organization/OrganizationIndexPage";
+
 import UCSBDatesIndexPage from "main/pages/UCSBDates/UCSBDatesIndexPage";
 import UCSBDatesCreatePage from "main/pages/UCSBDates/UCSBDatesCreatePage";
 import UCSBDatesEditPage from "main/pages/UCSBDates/UCSBDatesEditPage";
@@ -37,6 +39,13 @@ function App() {
               <Route exact path="/todos/list" element={<TodosIndexPage />} />
               <Route exact path="/todos/create" element={<TodosCreatePage />} />
               <Route exact path="/todos/edit/:todoId" element={<TodosEditPage />} />
+            </>
+          )
+        }
+        {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/organizations/list" element={<OrganizationsIndexPage />} />
             </>
           )
         }
