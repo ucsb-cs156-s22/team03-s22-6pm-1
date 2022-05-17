@@ -12,11 +12,11 @@ export default function HelpRequestsTable({ helpRequests, currentUser }) {
     //     navigate(`/ucsbdates/edit/${cell.row.values.id}`)
     // }
 
-    // // Stryker disable all : hard to test for query caching
+    // Stryker disable all : hard to test for query caching
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
-        //["/api/HelpRequest/all"]
+        ["/api/HelpRequest/all"]
     );
     // Stryker enable all 
 
