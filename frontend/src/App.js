@@ -9,7 +9,7 @@ import TodosEditPage from "main/pages/Todos/TodosEditPage";
 
 import DiningCommonsIndexPage from "main/pages/DiningCommons/DiningCommonsIndexPage";
 
-import OrganizationsIndexPage from "main/pages/Organizations/OrganizationIndexPage";
+import OrganizationsIndexPage from "main/pages/Organizations/OrganizationsIndexPage";
 
 import UCSBDatesIndexPage from "main/pages/UCSBDates/UCSBDatesIndexPage";
 import UCSBDatesCreatePage from "main/pages/UCSBDates/UCSBDatesCreatePage";
