@@ -1,6 +1,6 @@
 const recommendationFixtures = {
-    oneRecommendationCommons: {
-        "id": "1",
+    oneRecommendation: {
+        "id": 1,
         "requesterEmail": "aadityachannabasappa@ucsb.edu",
         "professorEmail": "myProf@ucsb.edu",
         "explanation": "Needed for Research",
@@ -10,7 +10,7 @@ const recommendationFixtures = {
     },
     threeRecommendation: [
         {
-            "id": "1",
+            "id": 1,
             "requesterEmail": "aadityachannabasappa@ucsb.edu",
             "professorEmail": "myProf@ucsb.edu",
             "explanation": "Needed for Research",
@@ -19,7 +19,7 @@ const recommendationFixtures = {
             "done": false
         },
         {
-            "id": "2",
+            "id": 2,
             "requesterEmail": "student1@ucsb.edu",
             "professorEmail": "myProf2@ucsb.edu",
             "explanation": "Needed for Internship",
@@ -28,7 +28,7 @@ const recommendationFixtures = {
             "done": true
         },
         {
-            "id": "3",
+            "id": 3,
             "requesterEmail": "student3@ucsb.edu",
             "professorEmail": "myProf@ucsb.edu",
             "explanation": "Needed for Job",
