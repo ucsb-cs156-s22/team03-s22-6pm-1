@@ -1,4 +1,4 @@
-const ucsbDatesFixtures = {
+const organizationsFixtures = {
     oneOrganization: {
         "orgCode": "ZPR",
         "orgTranslationShort": "ZETA PHI RHO",
