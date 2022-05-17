@@ -77,7 +77,7 @@ describe("OrganizationsIndexPage tests", () => {
     test("renders three organizations without crashing for regular user", async () => {
         setupUserOnly();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/UCSBOrganizations/all").reply(200, organizationsFixtures.threeOrganizations);
+        axiosMock.onGet("/api/UCSBOrganization/all").reply(200, organizationsFixtures.threeOrganizations);
 
         const { getByTestId } = render(
             <QueryClientProvider client={queryClient}>
@@ -96,7 +96,7 @@ describe("OrganizationsIndexPage tests", () => {
     test("renders three organizations without crashing for admin user", async () => {
         setupAdminUser();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/UCSBOrganizations/all").reply(200, organizationsFixtures.threeOrganizations);
+        axiosMock.onGet("/api/UCSBOrganization/all").reply(200, organizationsFixtures.threeOrganizations);
 
         const { getByTestId } = render(
             <QueryClientProvider client={queryClient}>
@@ -116,7 +116,7 @@ describe("OrganizationsIndexPage tests", () => {
         setupUserOnly();
 
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/UCSBOrganizations/all").timeout();
+        axiosMock.onGet("/api/UCSBOrganization/all").timeout();
 
         const restoreConsole = mockConsole();
 
@@ -148,7 +148,7 @@ describe("OrganizationsIndexPage tests", () => {
         setupAdminUser();
 
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/UCSBOrganizations/all").reply(200, organizationsFixtures.threeOrganizations);
+        axiosMock.onGet("/api/UCSBOrganization/all").reply(200, organizationsFixtures.threeOrganizations);
         axiosMock.onDelete("/api/UCSBOrganizations").reply(200, "Organization with orgCode ZPR was deleted");
 
 

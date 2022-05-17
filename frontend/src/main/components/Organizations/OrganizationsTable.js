@@ -57,7 +57,7 @@ export default function OrganizationsTable({ organizations, currentUser }) {
         }
     ];
 
-    const testid = "OrganizationsIndexPage";
+    const testid = "OrganizationsTable";
 
     const columnsIfAdmin = [
         ...columns,
@@ -70,6 +70,6 @@ export default function OrganizationsTable({ organizations, currentUser }) {
     return <OurTable
         data={organizations}
         columns={columnsToDisplay}
-        testid={"OrganizationsTable"}
+        testid={testid}
     />;
 };
