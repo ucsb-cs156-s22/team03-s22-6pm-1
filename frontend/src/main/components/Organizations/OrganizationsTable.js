@@ -7,10 +7,10 @@ import { hasRole } from "main/utils/currentUser";
 
 export function cellToAxiosParamsDelete(cell) {
     return {
-        url: "/api/UCSBOrganizations",
+        url: "/api/UCSBOrganization",
         method: "DELETE",
         params: {
-            id: cell.row.values.orgCode
+            orgCode: cell.row.values.orgCode
         }
     }
 }
