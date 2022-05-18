@@ -9,7 +9,6 @@ import TodosEditPage from "main/pages/Todos/TodosEditPage";
 
 import HelpRequestsIndexPage from "main/pages/HelpRequests/HelpRequestsIndexPage";
 import DiningCommonsIndexPage from "main/pages/DiningCommons/DiningCommonsIndexPage";
-
 import RecommendationIndexPage from "main/pages/Recommendation/RecommendationIndexPage";
 import MenuItemsIndexPage from "main/pages/MenuItems/MenuItemsIndexPage";
 
