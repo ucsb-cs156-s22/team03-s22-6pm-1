@@ -93,9 +93,9 @@ describe("MenuItemsTable tests", () => {
     // expect(editButton).toHaveClass("btn-primary");
 
     // KL - commented out stuff below, but not stuff above
-    // const deleteButton = getByTestId(`${testId}-cell-row-0-col-Delete-button`);
-    // expect(deleteButton).toBeInTheDocument();
-    // expect(deleteButton).toHaveClass("btn-danger");
+    const deleteButton = getByTestId(`${testId}-cell-row-0-col-Delete-button`);
+    expect(deleteButton).toBeInTheDocument();
+    expect(deleteButton).toHaveClass("btn-danger");
 
   });
 
