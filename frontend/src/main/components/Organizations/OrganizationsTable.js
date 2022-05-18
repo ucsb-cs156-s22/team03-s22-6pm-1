@@ -28,7 +28,7 @@ export default function OrganizationsTable({ organizations, currentUser }) {
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
-        ["/api/UCSBOrganizations/all"]
+        ["/api/UCSBOrganization/all"]
     );
     // Stryker enable all 
 
