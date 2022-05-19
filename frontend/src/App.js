@@ -12,6 +12,7 @@ import DiningCommonsIndexPage from "main/pages/DiningCommons/DiningCommonsIndexP
 
 import MenuItemsIndexPage from "main/pages/MenuItems/MenuItemsIndexPage";
 
+
 import UCSBDatesIndexPage from "main/pages/UCSBDates/UCSBDatesIndexPage";
 import UCSBDatesCreatePage from "main/pages/UCSBDates/UCSBDatesCreatePage";
 import UCSBDatesEditPage from "main/pages/UCSBDates/UCSBDatesEditPage";
@@ -20,6 +21,7 @@ import UCSBDatesEditPage from "main/pages/UCSBDates/UCSBDatesEditPage";
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
 import "bootstrap/dist/css/bootstrap.css";
+import ArticlesIndexPage from "main/pages/Articles/ArticlesIndexPage";
 
 
 function App() {
@@ -76,6 +78,13 @@ function App() {
             <>
               <Route exact path="/ucsbdates/edit/:id" element={<UCSBDatesEditPage />} />
               <Route exact path="/ucsbdates/create" element={<UCSBDatesCreatePage />} />
+            </>
+          )
+        }
+        {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/articles/list" element={<ArticlesIndexPage />} />
             </>
           )
         }
