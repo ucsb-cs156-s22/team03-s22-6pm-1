@@ -1,7 +1,9 @@
+
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import ArticlesIndexPage from "main/pages/Articles/ArticlesIndexPage";
+
 
 
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
@@ -22,9 +24,11 @@ jest.mock('react-toastify', () => {
     };
 });
 
+
 describe("ArticlesIndexPage tests", () => {
 
     const axiosMock =new AxiosMockAdapter(axios);
+
 
     const testId = "ArticlesTable";
 
