@@ -4,29 +4,34 @@ const reviewFixtures = {
         "reviewerEmail": "timothychang@ucsb.edu",
         "stars": 3,
         "dateReviewed": "2022-04-03T12:00:00",
-        "comments": "yummy"
+        "comments": "yummy",
+        "id": 1
     },
     threeReview: [
         {
-            "itemId": 2,
+            "itemId": 1,
             "reviewerEmail": "timothychang@ucsb.edu",
             "stars": 5,
             "dateReviewed": "2022-04-03T12:00:00",
-            "comments": "gross"
+            "comments": "gross",
+            "id": 1
+
         },
         {
-            "itemId": 5,
-            "reviewerEmail": "timothychang@ucsb.edu",
+            "itemId": 2,
+            "reviewerEmail": "timothychang2@ucsb.edu",
             "stars": 3,
-            "dateReviewed": "2022-04-03T12:00:00",
-            "comments": "delicious"
+            "dateReviewed": "2022-05-03T12:00:00",
+            "comments": "delicious",
+            "id": 2
         },
         {
-            "itemId": 5,
-            "reviewerEmail": "timothychang@ucsb.edu",
-            "stars": 3,
-            "dateReviewed": "2022-04-03T12:00:00",
-            "comments": "yummy"
+            "itemId": 3,
+            "reviewerEmail": "timothychang3@ucsb.edu",
+            "stars": 4,
+            "dateReviewed": "2022-06-03T12:00:00",
+            "comments": "yummy",
+            "id": 3
         } 
     ]
 };
