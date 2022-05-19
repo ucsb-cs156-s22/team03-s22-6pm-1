@@ -26,7 +26,7 @@ describe("OrganizationsIndexPage tests", () => {
 
     const axiosMock =new AxiosMockAdapter(axios);
 
-    const testId = "OrganizationsTable";
+    const _testId = "OrganizationsTable";
 
     const setupUserOnly = () => {
         axiosMock.reset();
