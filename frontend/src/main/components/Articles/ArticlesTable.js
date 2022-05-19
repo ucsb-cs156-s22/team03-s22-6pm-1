@@ -2,18 +2,8 @@ import OurTable, { ButtonColumn }from "main/components/OurTable";
 import { useBackendMutation } from "main/utils/useBackend";
 // import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
-import { /*cellToAxiosParamsDelete,*/ onDeleteSuccess } from "main/utils/UCSBDateUtils"
+import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/ArticlesUtils"
 
-
-export function cellToAxiosParamsDelete(cell) {
-    return {
-        url: "/api/articles",
-        method: "DELETE",
-        params: {
-            id: cell.row.values.id
-        }
-    }
-}
 
 
 export default function ArticlesTable({ articles, currentUser }) {
@@ -25,7 +15,7 @@ export default function ArticlesTable({ articles, currentUser }) {
     // }
 
 
-    //Stryker disable all : hard to test for query caching
+    // Stryker disable all : hard to test for query caching
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
@@ -59,8 +49,8 @@ export default function ArticlesTable({ articles, currentUser }) {
             accessor: 'email',
         },
         {
-            Header: 'LocalDateTime',
-            accessor: 'localDateTime',
+            Header: 'Date Added',
+            accessor: 'dateAdded',
         }
     ];
 

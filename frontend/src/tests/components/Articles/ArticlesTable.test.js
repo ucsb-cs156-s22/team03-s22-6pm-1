@@ -69,8 +69,8 @@ describe("ArticlesTable tests", () => {
     );
 
 
-    const expectedHeaders = ['ID', 'Title', 'Explanation','Email', 'LocalDateTime'];
-    const expectedFields = ['id', 'title', 'explanation','email', 'localDateTime'];
+    const expectedHeaders = ['ID', 'Title', 'Explanation','Email', 'Date Added'];
+    const expectedFields = ['id', 'title', 'explanation','email', 'dateAdded'];
     const testId = "ArticlesTable";
 
     expectedHeaders.forEach((headerText) => {
@@ -88,8 +88,8 @@ describe("ArticlesTable tests", () => {
     expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2");
     expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("3");
     expect(getByTestId(`${testId}-cell-row-2-col-email`)).toHaveTextContent("helpme@ucsb.edu");
-    expect(getByTestId(`${testId}-cell-row-2-col-localDateTime`)).toHaveTextContent("2022-05-02T12:00:00");
-    expect(getByTestId(`${testId}-cell-row-0-col-localDateTime`)).toHaveTextContent("2022-02-02T12:00:00");
+    expect(getByTestId(`${testId}-cell-row-2-col-dateAdded`)).toHaveTextContent("2022-05-02T12:00:00");
+    expect(getByTestId(`${testId}-cell-row-0-col-dateAdded`)).toHaveTextContent("2022-02-02T12:00:00");
     expect(getByTestId(`${testId}-cell-row-1-col-email`)).toHaveTextContent("oogabooga@ucsb.edu");
 
     // const editButton = getByTestId(`${testId}-cell-row-0-col-Edit-button`);
@@ -130,24 +130,6 @@ describe("ArticlesTable tests", () => {
   // });
 
 
-    describe("cellToAxiosParamsDelete", () => {
-
-        test("It returns the correct params", () => {
-            // arrange
-            const cell = { row: { values: { id: 17 } } };
-
-            // act
-            const result = cellToAxiosParamsDelete(cell);
-
-            // assert
-            expect(result).toEqual({
-                url: "/api/Recommendation",
-                method: "DELETE",
-                params: { id: 17 }
-            });
-        });
-
-    });
 
 
 });
