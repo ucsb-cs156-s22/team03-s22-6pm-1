@@ -13,6 +13,8 @@ import DiningCommonsIndexPage from "main/pages/DiningCommons/DiningCommonsIndexP
 import RecommendationIndexPage from "main/pages/Recommendation/RecommendationIndexPage";
 import MenuItemsIndexPage from "main/pages/MenuItems/MenuItemsIndexPage";
 
+import OrganizationsIndexPage from "main/pages/Organizations/OrganizationsIndexPage";
+
 import UCSBDatesIndexPage from "main/pages/UCSBDates/UCSBDatesIndexPage";
 import UCSBDatesCreatePage from "main/pages/UCSBDates/UCSBDatesCreatePage";
 import UCSBDatesEditPage from "main/pages/UCSBDates/UCSBDatesEditPage";
@@ -48,6 +50,13 @@ function App() {
           hasRole(currentUser, "ROLE_USER") && (
             <>
               <Route exact path="/review/list" element={<ReviewIndexPage />} />
+            </>
+          )
+        }
+        {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/organizations/list" element={<OrganizationsIndexPage />} />
             </>
           )
         }
