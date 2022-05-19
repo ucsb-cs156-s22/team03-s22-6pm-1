@@ -4,7 +4,7 @@ import OurTable/*, { ButtonColumn }*/ from "main/components/OurTable";
 // import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-export default function MenuItemsTable({ menuItems, currentUser }) {
+export default function ArticlesTable({ articles, currentUser }) {
 
     // const navigate = useNavigate();
 

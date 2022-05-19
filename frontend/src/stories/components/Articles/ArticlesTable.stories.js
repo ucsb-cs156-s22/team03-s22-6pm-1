@@ -23,5 +23,5 @@ Empty.args = {
 export const ThreeDates = Template.bind({});
 
 ThreeDates.args = {
-    articles: articlesFixtures.threeCommons
+    articles: articlesFixtures.threeArticles
 };
