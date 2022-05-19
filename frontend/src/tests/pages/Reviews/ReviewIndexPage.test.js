@@ -3,7 +3,6 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import ReviewIndexPage from "main/pages/Reviews/ReviewIndexPage";
 
-
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 import { reviewFixtures } from "fixtures/reviewFixtures";
@@ -72,6 +71,7 @@ describe("ReviewIndexPage tests", () => {
         );
 
 
+
     });
 
     test("renders three reviews without crashing for regular user", async () => {
@@ -128,12 +128,12 @@ describe("ReviewIndexPage tests", () => {
 
         await waitFor(() => { expect(axiosMock.history.get.length).toBeGreaterThanOrEqual(3); });
         
-        //const expectedHeaders = ['itemId', 'reviewerEmail', 'stars','dateReviewed','comments'];
+        const expectedHeaders = ['itemId', 'reviewerEmail', 'stars','dateReviewed','comments'];
     
-        // expectedHeaders.forEach((headerText) => {
-        //   const header = getByText(headerText);
-        //   expect(header).toBeInTheDocument();
-        // });
+        expectedHeaders.forEach((headerText) => {
+           const header = getByText(headerText);
+           expect(header).toBeInTheDocument();
+        });
 
         expect(queryByTestId(`${testId}-cell-row-0-col-itemId`)).not.toBeInTheDocument();
     });
@@ -170,6 +170,4 @@ describe("ReviewIndexPage tests", () => {
     });
 
 });
-
-
 
