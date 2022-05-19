@@ -17,6 +17,7 @@ export default function ArticlesIndexPage() {
             { method: "GET", url: "/api/articles/all" },
       []
     );
+
   return (
     <BasicLayout>
       <div className="pt-2">
