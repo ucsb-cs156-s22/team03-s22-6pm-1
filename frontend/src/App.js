@@ -7,7 +7,10 @@ import TodosIndexPage from "main/pages/Todos/TodosIndexPage";
 import TodosCreatePage from "main/pages/Todos/TodosCreatePage";
 import TodosEditPage from "main/pages/Todos/TodosEditPage";
 
+import HelpRequestsIndexPage from "main/pages/HelpRequests/HelpRequestsIndexPage";
 import DiningCommonsIndexPage from "main/pages/DiningCommons/DiningCommonsIndexPage";
+import RecommendationIndexPage from "main/pages/Recommendation/RecommendationIndexPage";
+import MenuItemsIndexPage from "main/pages/MenuItems/MenuItemsIndexPage";
 
 import OrganizationsIndexPage from "main/pages/Organizations/OrganizationsIndexPage";
 
@@ -44,15 +47,27 @@ function App() {
         }
         {
           hasRole(currentUser, "ROLE_USER") && (
-            <>
               <Route exact path="/organizations/list" element={<OrganizationsIndexPage />} />
+          )
+        }
+        
+        {
+          hasRole(currentUser, "ROLE_USER") && (
+              <Route exact path="/helprequests/list" element={<HelpRequestsIndexPage />} />
+          )
+        }
+        
+        {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/diningCommons/list" element={<DiningCommonsIndexPage />} />
             </>
           )
         }
         {
           hasRole(currentUser, "ROLE_USER") && (
             <>
-              <Route exact path="/diningCommons/list" element={<DiningCommonsIndexPage />} />
+              <Route exact path="/menuItems/list" element={<MenuItemsIndexPage />} />
             </>
           )
         }
@@ -64,6 +79,13 @@ function App() {
           )
         }
         {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/recommendation/list" element={<RecommendationIndexPage />} />
+            </>
+          )
+        }
+        {
           hasRole(currentUser, "ROLE_ADMIN") && (
             <>
               <Route exact path="/ucsbdates/edit/:id" element={<UCSBDatesEditPage />} />
@@ -71,6 +93,7 @@ function App() {
             </>
           )
         }
+        
 
       </Routes>
     </BrowserRouter>
