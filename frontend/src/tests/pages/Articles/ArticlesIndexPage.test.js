@@ -145,7 +145,7 @@ describe("ArticlesIndexPage tests", () => {
 
         const queryClient = new QueryClient();
         axiosMock.onGet("/api/articles/all").reply(200, articlesFixtures.threeArticles);
-        axiosMock.onDelete("/api/articles", {params: {code: "0"}}).reply(200, "Article with id 0 was deleted");
+        axiosMock.onDelete("/api/articles", {params: {id: "2"}}).reply(200, "Article with id 2 was deleted");
 
 
         const { getByTestId } = render(
@@ -156,9 +156,9 @@ describe("ArticlesIndexPage tests", () => {
             </QueryClientProvider>
         );
 
-        await waitFor(() => { expect(getByTestId(`${testId}-cell-row-0-col-code`)).toBeInTheDocument(); });
+        await waitFor(() => { expect(getByTestId(`${testId}-cell-row-0-col-id`)).toBeInTheDocument(); });
 
-       expect(getByTestId(`${testId}-cell-row-0-col-code`)).toHaveTextContent("0"); 
+       expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2"); 
 
 
         const deleteButton = getByTestId(`${testId}-cell-row-0-col-Delete-button`);
@@ -166,7 +166,7 @@ describe("ArticlesIndexPage tests", () => {
        
         fireEvent.click(deleteButton);
 
-        await waitFor(() => { expect(mockToast).toBeCalledWith("Article with id 0 was deleted") });
+        await waitFor(() => { expect(mockToast).toBeCalledWith("Article with id 2 was deleted") });
 
     });
 
