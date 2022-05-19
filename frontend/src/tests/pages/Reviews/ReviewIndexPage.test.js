@@ -118,7 +118,7 @@ describe("ReviewIndexPage tests", () => {
         const queryClient = new QueryClient();
         axiosMock.onGet("/api/MenuItemReview/all").timeout();
 
-        const { queryByTestId } = render(
+        const { queryByTestId, getByText} = render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
                     <ReviewIndexPage />
@@ -128,12 +128,12 @@ describe("ReviewIndexPage tests", () => {
 
         await waitFor(() => { expect(axiosMock.history.get.length).toBeGreaterThanOrEqual(3); });
         
-        // const expectedHeaders = ['itemId', 'reviewerEmail', 'stars','dateReviewed','comments'];
+        const expectedHeaders = ['ID', 'Item ID', 'Reviewer Email', 'Stars','Date Reviewed','Comments'];
     
-        // expectedHeaders.forEach((headerText) => {
-        //    const header = getByText(headerText);
-        //    expect(header).toBeInTheDocument();
-        // });
+        expectedHeaders.forEach((headerText) => {
+            const header = getByText(headerText);
+            expect(header).toBeInTheDocument();
+        });
 
         expect(queryByTestId(`${testId}-cell-row-0-col-itemId`)).not.toBeInTheDocument();
     });
