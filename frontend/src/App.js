@@ -52,16 +52,25 @@ function App() {
         }
         {
           hasRole(currentUser, "ROLE_USER") && (
-              <Route exact path="/organizations/list" element={<OrganizationsIndexPage />} />
+            <>
+              <Route exact path="/review/list" element={<ReviewIndexPage />} />
+            </>
           )
         }
-        
         {
           hasRole(currentUser, "ROLE_USER") && (
-              <Route exact path="/helprequests/list" element={<HelpRequestsIndexPage />} />
+            <>
+              <Route exact path="/organizations/list" element={<OrganizationsIndexPage />} />
+            </>
           )
         }
-        
+        {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/helprequests/list" element={<HelpRequestsIndexPage />} />
+            </>
+          )
+        }
         {
           hasRole(currentUser, "ROLE_USER") && (
             <>
