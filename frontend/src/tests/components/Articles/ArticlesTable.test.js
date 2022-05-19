@@ -12,24 +12,6 @@ jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
     useNavigate: () => mockedNavigate
 }));
-describe("cellToAxiosParamsDelete", () => {
-
-        test("It returns the correct params", () => {
-            // arrange
-            const cell = { row: { values: { id: 17 } } };
-
-            // act
-            const result = cellToAxiosParamsDelete(cell);
-
-            // assert
-            expect(result).toEqual({
-                url: "/api/Recommendation",
-                method: "DELETE",
-                params: { id: 17 }
-            });
-        });
-
-});
 
 describe("ArticlesTable tests", () => {
   const queryClient = new QueryClient();
@@ -144,6 +126,26 @@ describe("ArticlesTable tests", () => {
   //   await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/ucsbdates/edit/1'));
 
   // });
+
+    describe("cellToAxiosParamsDelete", () => {
+
+        test("It returns the correct params", () => {
+            // arrange
+            const cell = { row: { values: { id: 17 } } };
+
+            // act
+            const result = cellToAxiosParamsDelete(cell);
+
+            // assert
+            expect(result).toEqual({
+                url: "/api/Recommendation",
+                method: "DELETE",
+                params: { id: 17 }
+            });
+        });
+
+    });
+
 
 
 });
