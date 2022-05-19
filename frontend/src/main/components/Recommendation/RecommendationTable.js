@@ -1,6 +1,6 @@
-import OurTable, {_ButtonColumn} from "main/components/OurTable";
-//import { useBackendMutation } from "main/utils/useBackend";
-//import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/RecommendationUtils"
+import OurTable, {ButtonColumn} from "main/components/OurTable";
+import { useBackendMutation } from "main/utils/useBackend";
+import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/RecommendationUtils"
 //import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
@@ -13,15 +13,15 @@ export default function RecommendationTable({ recommendation, currentUser }) {
     // }
 
     // Stryker disable all : hard to test for query caching
-    // const deleteMutation = useBackendMutation(
-    //     cellToAxiosParamsDelete,
-    //     { onSuccess: onDeleteSuccess },
-    //     ["/api/Recommendation/all"]
-    // );
+    const deleteMutation = useBackendMutation(
+        cellToAxiosParamsDelete,
+        { onSuccess: onDeleteSuccess },
+        ["/api/Recommendation/all"]
+    );
     // Stryker enable all 
 
     // Stryker disable next-line all
-    //const deleteCallback = async (cell) => { deleteMutation.mutate(cell); }
+    const deleteCallback = async (cell) => { deleteMutation.mutate(cell); }
 
     const columns = [
         {
@@ -55,10 +55,12 @@ export default function RecommendationTable({ recommendation, currentUser }) {
         }
     ];
 
+    const testid = "RecommendationTable";
+
     const columnsIfAdmin = [
         ...columns,
         //ButtonColumn("Edit", "primary", editCallback, "UCSBDatesTable"),
-        //ButtonColumn("Delete", "danger", deleteCallback, "RecommendationTable")
+        ButtonColumn("Delete", "danger", deleteCallback, testid)
     ];
 
     const columnsToDisplay = hasRole(currentUser, "ROLE_ADMIN") ? columnsIfAdmin : columns;
@@ -66,6 +68,6 @@ export default function RecommendationTable({ recommendation, currentUser }) {
     return <OurTable
         data={recommendation}
         columns={columnsToDisplay}
-        testid={"RecommendationTable"}
+        testid={testid}
     />;
 };
