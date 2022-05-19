@@ -143,32 +143,32 @@ describe("ArticlesIndexPage tests", () => {
     test("test what happens when you click delete, admin", async () => {
         setupAdminUser();
 
-        const queryClient = new QueryClient();
-        axiosMock.onGet("/api/articles/all").reply(200, articlesFixtures.threeArticles);
-        axiosMock.onDelete("/api/articles", {params: {id: "2"}}).reply(200, "Article with id 2 was deleted");
+       const queryClient = new QueryClient();
+       axiosMock.onGet("/api/articles/all").reply(200, articlesFixtures.threeArticles);
+       axiosMock.onDelete("/api/articles", {params: {id: 2}}).reply(200, "Article with id 2 was deleted");
 
 
-        const { getByTestId } = render(
-            <QueryClientProvider client={queryClient}>
-                <MemoryRouter>
-                    <ArticlesIndexPage />
-                </MemoryRouter>
-            </QueryClientProvider>
-        );
+       const { getByTestId } = render(
+           <QueryClientProvider client={queryClient}>
+               <MemoryRouter>
+                   <ArticlesIndexPage />
+               </MemoryRouter>
+           </QueryClientProvider>
+       );
 
-        await waitFor(() => { expect(getByTestId(`${testId}-cell-row-0-col-id`)).toBeInTheDocument(); });
+       await waitFor(() => { expect(getByTestId(`${testId}-cell-row-0-col-id`)).toBeInTheDocument(); });
 
-       expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2"); 
+      expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(2); 
 
 
-        const deleteButton = getByTestId(`${testId}-cell-row-0-col-Delete-button`);
-        expect(deleteButton).toBeInTheDocument();
-       
-        fireEvent.click(deleteButton);
+       const deleteButton = getByTestId(`${testId}-cell-row-0-col-Delete-button`);
+       expect(deleteButton).toBeInTheDocument();
+      
+       fireEvent.click(deleteButton);
 
-        await waitFor(() => { expect(mockToast).toBeCalledWith("Article with id 2 was deleted") });
+       await waitFor(() => { expect(mockToast).toBeCalledWith("Article with id 2 was deleted") });
 
-    });
+   });
 
 });
 
