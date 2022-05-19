@@ -1,17 +1,21 @@
 
+
 import { fireEvent, render, waitFor } from "@testing-library/react";
+
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
-import ArticlesIndexPage from "main/pages/Articles/ArticlesIndexPage";
 
 
 
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
-import { articlesFixtures } from "fixtures/articlesFixtures";
+
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
 import _mockConsole from "jest-mock-console";
+import ArticlesIndexPage from "main/pages/Articles/ArticlesIndexPage";
+import { articlesFixtures } from "fixtures/articlesFixtures";
+
 
 
 const mockToast = jest.fn();
@@ -24,11 +28,9 @@ jest.mock('react-toastify', () => {
     };
 });
 
-
 describe("ArticlesIndexPage tests", () => {
 
     const axiosMock =new AxiosMockAdapter(axios);
-
 
     const testId = "ArticlesTable";
 
@@ -51,6 +53,7 @@ describe("ArticlesIndexPage tests", () => {
         const queryClient = new QueryClient();
         axiosMock.onGet("/api/articles/all").reply(200, []);
 
+
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
@@ -58,7 +61,45 @@ describe("ArticlesIndexPage tests", () => {
                 </MemoryRouter>
             </QueryClientProvider>
         );
+
+
     });
+
+    test("renders without crashing for admin user", () => {
+        setupAdminUser();
+        const queryClient = new QueryClient();
+        axiosMock.onGet("/api/articles/all").reply(200, []);
+
+        render(
+            <QueryClientProvider client={queryClient}>
+                <MemoryRouter>
+                    <ArticlesIndexPage />
+                </MemoryRouter>
+            </QueryClientProvider>
+        );
+
+
+    });
+
+    test("renders three articles without crashing for regular user", async () => {
+        setupUserOnly();
+        const queryClient = new QueryClient();
+        axiosMock.onGet("/api/articles/all").reply(200, articlesFixtures.threeArticles);
+
+        const { getByTestId } = render(
+            <QueryClientProvider client={queryClient}>
+                <MemoryRouter>
+                    <ArticlesIndexPage />
+                </MemoryRouter>
+            </QueryClientProvider>
+        );
+
+        await waitFor(  () => { expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2"); } );
+        expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("3");
+        expect(getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("4");
+
+    });
+
 
     test("renders without crashing for admin user", () => {
         setupAdminUser();
@@ -93,6 +134,7 @@ describe("ArticlesIndexPage tests", () => {
 
     });
 
+
     test("renders three articles without crashing for admin user", async () => {
         setupAdminUser();
         const queryClient = new QueryClient();
@@ -119,6 +161,7 @@ describe("ArticlesIndexPage tests", () => {
         axiosMock.onGet("/api/articles/all").timeout();
 
         const { queryByTestId } = render(
+
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
                     <ArticlesIndexPage />
@@ -127,6 +170,7 @@ describe("ArticlesIndexPage tests", () => {
         );
 
         await waitFor(() => { expect(axiosMock.history.get.length).toBeGreaterThanOrEqual(3); });
+
 
         expect(queryByTestId(`${testId}-cell-row-0-col-id`)).not.toBeInTheDocument();
     });

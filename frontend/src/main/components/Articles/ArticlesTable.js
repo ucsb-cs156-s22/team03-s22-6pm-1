@@ -15,6 +15,7 @@ export function cellToAxiosParamsDelete(cell) {
     }
 }
 
+
 export default function ArticlesTable({ articles, currentUser }) {
 
     // const navigate = useNavigate();
@@ -22,6 +23,7 @@ export default function ArticlesTable({ articles, currentUser }) {
     // const editCallback = (cell) => {
     //     navigate(`/ucsbdates/edit/${cell.row.values.id}`)
     // }
+
 
     //Stryker disable all : hard to test for query caching
     const deleteMutation = useBackendMutation(
@@ -62,12 +64,16 @@ export default function ArticlesTable({ articles, currentUser }) {
         }
     ];
 
+
     const testid = "ArticlesTable";
+
 
     const columnsIfAdmin = [
         ...columns,
         // ButtonColumn("Edit", "primary", editCallback, testid),
+
         ButtonColumn("Delete", "danger", deleteCallback, testid)
+
     ];
 
     const columnsToDisplay = hasRole(currentUser, "ROLE_ADMIN") ? columnsIfAdmin : columns;
@@ -77,4 +83,5 @@ export default function ArticlesTable({ articles, currentUser }) {
         columns={columnsToDisplay}
         testid={"ArticlesTable"}
     />;
+
 }; 

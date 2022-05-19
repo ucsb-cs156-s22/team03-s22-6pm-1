@@ -97,9 +97,11 @@ describe("ArticlesTable tests", () => {
     // expect(editButton).toHaveClass("btn-primary");
 
     // KL - commented out stuff below, but not stuff above
+
     const deleteButton = getByTestId(`${testId}-cell-row-0-col-Delete-button`);
     expect(deleteButton).toBeInTheDocument();
     expect(deleteButton).toHaveClass("btn-danger");
+
 
   });
 
@@ -127,6 +129,7 @@ describe("ArticlesTable tests", () => {
 
   // });
 
+
     describe("cellToAxiosParamsDelete", () => {
 
         test("It returns the correct params", () => {
@@ -145,7 +148,6 @@ describe("ArticlesTable tests", () => {
         });
 
     });
-
 
 
 });
