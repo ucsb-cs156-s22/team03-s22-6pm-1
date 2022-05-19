@@ -1,4 +1,4 @@
-import { /*fireEvent, */render, waitFor } from "@testing-library/react";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 
@@ -139,35 +139,35 @@ describe("ArticlesIndexPage tests", () => {
         expect(queryByTestId(`${testId}-cell-row-0-col-id`)).not.toBeInTheDocument();
     });
 
-    // test("test what happens when you click delete, admin", async () => {
-    //     setupAdminUser();
+    test("test what happens when you click delete, admin", async () => {
+        setupAdminUser();
 
-    //     const queryClient = new QueryClient();
-    //     axiosMock.onGet("/api/ucsbdiningcommons/all").reply(200, diningCommonsFixtures.threeCommons);
-    //     axiosMock.onDelete("/api/ucsbdiningcommons", {params: {code: "de-la-guerra"}}).reply(200, "DiningCommons with id de-la-guerra was deleted");
-
-
-    //     const { getByTestId } = render(
-    //         <QueryClientProvider client={queryClient}>
-    //             <MemoryRouter>
-    //                 <DiningCommonsIndexPage />
-    //             </MemoryRouter>
-    //         </QueryClientProvider>
-    //     );
-
-    //     await waitFor(() => { expect(getByTestId(`${testId}-cell-row-0-col-code`)).toBeInTheDocument(); });
-
-    //    expect(getByTestId(`${testId}-cell-row-0-col-code`)).toHaveTextContent("de-la-guerra"); 
+        const queryClient = new QueryClient();
+        axiosMock.onGet("/api/articles/all").reply(200, articlesFixtures.threeArticles);
+        axiosMock.onDelete("/api/articles", {params: {code: "0"}}).reply(200, "Article with id 0 was deleted");
 
 
-    //     const deleteButton = getByTestId(`${testId}-cell-row-0-col-Delete-button`);
-    //     expect(deleteButton).toBeInTheDocument();
+        const { getByTestId } = render(
+            <QueryClientProvider client={queryClient}>
+                <MemoryRouter>
+                    <ArticlesIndexPage />
+                </MemoryRouter>
+            </QueryClientProvider>
+        );
+
+        await waitFor(() => { expect(getByTestId(`${testId}-cell-row-0-col-code`)).toBeInTheDocument(); });
+
+       expect(getByTestId(`${testId}-cell-row-0-col-code`)).toHaveTextContent("0"); 
+
+
+        const deleteButton = getByTestId(`${testId}-cell-row-0-col-Delete-button`);
+        expect(deleteButton).toBeInTheDocument();
        
-    //     fireEvent.click(deleteButton);
+        fireEvent.click(deleteButton);
 
-    //     await waitFor(() => { expect(mockToast).toBeCalledWith("DiningCommons with id de-la-guerra was deleted") });
+        await waitFor(() => { expect(mockToast).toBeCalledWith("Article with id 0 was deleted") });
 
-    // });
+    });
 
 });
 
