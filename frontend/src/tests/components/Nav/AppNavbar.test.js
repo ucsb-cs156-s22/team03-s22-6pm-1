@@ -323,7 +323,7 @@ describe("AppNavbar tests", () => {
                 </MemoryRouter>
             </QueryClientProvider>
         );
-              
+
         await waitFor(() => expect(getByTestId("appnavbar-review-dropdown")).toBeInTheDocument());
         const dropdown = getByTestId("appnavbar-review-dropdown");
         const aElement = dropdown.querySelector("a");
@@ -332,7 +332,7 @@ describe("AppNavbar tests", () => {
         await waitFor( () => expect(getByTestId(/appnavbar-review-list/)).toBeInTheDocument() );
 
     });
-      
+
     test("renders the recommendation menu correctly for an admin", async () => {
 
         const currentUser = currentUserFixtures.adminUser;
