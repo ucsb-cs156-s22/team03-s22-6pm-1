@@ -83,10 +83,10 @@ describe("ArticlesTable tests", () => {
       expect(header).toBeInTheDocument();
     });
 
-    expect(getByTestId(`${testId}-cell-row-0-col-diningCommonsCode`)).toHaveTextContent("de-la-guerra");
-    expect(getByTestId(`${testId}-cell-row-1-col-diningCommonsCode`)).toHaveTextContent("ortega");
-    expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("0");
-    expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("1");
+    expect(getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("I exp article dos");
+    expect(getByTestId(`${testId}-cell-row-1-col-explanation`)).toHaveTextContent("I exp article tres");
+    expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2");
+    expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("3");
 
     // const editButton = getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     // expect(editButton).toBeInTheDocument();
