@@ -1,6 +1,7 @@
 import {  render } from "@testing-library/react";
 import { articlesFixtures } from "fixtures/articlesFixtures";
 import ArticlesTable from "main/components/Articles/ArticlesTable";
+import {cellToAxiosParamsDelete} from "main/components/Articles/ArticlesTable";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
