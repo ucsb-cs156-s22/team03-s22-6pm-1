@@ -16,7 +16,7 @@ import OurTable, { _ButtonColumn} from "main/components/OurTable";
 // }
 
 
-export default function OrganizationsTable({ organizations, currentUser }) {
+export default function OrganizationsTable({ organizations, _currentUser }) {
 
     //const navigate = useNavigate();
 
