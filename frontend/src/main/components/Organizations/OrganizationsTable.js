@@ -5,15 +5,15 @@ import {  onDeleteSuccess } from "main/utils/UCSBDateUtils"
 import { hasRole } from "main/utils/currentUser";
 
 
-export function cellToAxiosParamsDelete(cell) {
-    return {
-        url: "/api/UCSBOrganization",
-        method: "DELETE",
-        params: {
-            orgCode: cell.row.values.orgCode
-        }
-    }
-}
+// export function cellToAxiosParamsDelete(cell) {
+//     // return {
+//     //     url: "/api/UCSBOrganization",
+//     //     method: "DELETE",
+//     //     params: {
+//     //         orgCode: cell.row.values.orgCode
+//     //     }
+//     // }
+// }
 
 
 export default function OrganizationsTable({ organizations, currentUser }) {
@@ -25,15 +25,15 @@ export default function OrganizationsTable({ organizations, currentUser }) {
     // }
 
     // Stryker disable all : hard to test for query caching
-    const deleteMutation = useBackendMutation(
-        cellToAxiosParamsDelete,
-        { onSuccess: onDeleteSuccess },
-        ["/api/UCSBOrganization/all"]
-    );
+    // const deleteMutation = useBackendMutation(
+    //     //cellToAxiosParamsDelete,
+    //     { onSuccess: onDeleteSuccess },
+    //     ["/api/UCSBOrganization/all"]
+    // );
     // Stryker enable all 
 
     // Stryker disable next-line all : TODO try to make a good test for this
-   const deleteCallback = async (cell) => { deleteMutation.mutate(cell); }
+   //const deleteCallback = async (cell) => { deleteMutation.mutate(cell); }
 
 
 
@@ -62,7 +62,7 @@ export default function OrganizationsTable({ organizations, currentUser }) {
     const columnsIfAdmin = [
         ...columns,
         //ButtonColumn("Edit", "primary", editCallback, "UCSBDatesTable"),
-        ButtonColumn("Delete", "danger", deleteCallback, testid)
+      //  ButtonColumn("Delete", "danger", deleteCallback, testid)
     ];
 
     const columnsToDisplay = hasRole(currentUser, "ROLE_ADMIN") ? columnsIfAdmin : columns;

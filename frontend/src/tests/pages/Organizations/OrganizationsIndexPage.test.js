@@ -144,35 +144,35 @@ describe("OrganizationsIndexPage tests", () => {
         expect(queryByTestId(`${testId}-cell-row-0-col-orgCode`)).not.toBeInTheDocument();
     });
 
-    test("test what happens when you click delete, admin", async () => {
-        setupAdminUser();
+    // test("test what happens when you click delete, admin", async () => {
+    //     setupAdminUser();
 
-        const queryClient = new QueryClient();
-        axiosMock.onGet("/api/UCSBOrganization/all").reply(200, organizationsFixtures.threeOrganizations);
-        axiosMock.onDelete("/api/UCSBOrganization", {params: {orgCode: "ZPR"}}).reply(200, "Organization with orgCode ZPR was deleted");
-
-
-        const { getByTestId } = render(
-            <QueryClientProvider client={queryClient}>
-                <MemoryRouter>
-                    <OrganizationsIndexPage />
-                </MemoryRouter>
-            </QueryClientProvider>
-        );
-
-        await waitFor(() => { expect(getByTestId(`${testId}-cell-row-0-col-orgCode`)).toBeInTheDocument(); });
-
-       expect(getByTestId(`${testId}-cell-row-0-col-orgCode`)).toHaveTextContent("ZPR"); 
+    //     const queryClient = new QueryClient();
+    //     axiosMock.onGet("/api/UCSBOrganization/all").reply(200, organizationsFixtures.threeOrganizations);
+    //     axiosMock.onDelete("/api/UCSBOrganization", {params: {orgCode: "ZPR"}}).reply(200, "Organization with orgCode ZPR was deleted");
 
 
-        const deleteButton = getByTestId(`${testId}-cell-row-0-col-Delete-button`);
-        expect(deleteButton).toBeInTheDocument();
+    //     const { getByTestId } = render(
+    //         <QueryClientProvider client={queryClient}>
+    //             <MemoryRouter>
+    //                 <OrganizationsIndexPage />
+    //             </MemoryRouter>
+    //         </QueryClientProvider>
+    //     );
+
+    //     await waitFor(() => { expect(getByTestId(`${testId}-cell-row-0-col-orgCode`)).toBeInTheDocument(); });
+
+    //    expect(getByTestId(`${testId}-cell-row-0-col-orgCode`)).toHaveTextContent("ZPR"); 
+
+
+    //     const deleteButton = getByTestId(`${testId}-cell-row-0-col-Delete-button`);
+    //     expect(deleteButton).toBeInTheDocument();
        
-        fireEvent.click(deleteButton);
+    //     fireEvent.click(deleteButton);
 
-        await waitFor(() => { expect(mockToast).toBeCalledWith("Organization with orgCode ZPR was deleted") });
+    //     await waitFor(() => { expect(mockToast).toBeCalledWith("Organization with orgCode ZPR was deleted") });
 
-    });
+    // });
 
 });
 
