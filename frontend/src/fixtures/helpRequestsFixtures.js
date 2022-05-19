@@ -11,7 +11,7 @@ const helpRequestsFixtures = {
     threeHelpRequests: [
         {
             "explanation": "Is there a final for this class",
-            "id": 2,
+            "id": 0,
             "requestTime": "2022-05-16T03:15:10",
             "requesterEmail": "fdsaf@ytdghfb.cqq",
             "solved": false,
