@@ -4,7 +4,7 @@ const articlesFixtures = {
         "title": "article1",
         "explanation": "I exp article uno",
         "email": "anuraghsundar@ucsb.edu",
-        "localDateTime": "2022-01-02T12:00:00"
+        "dateAdded": "2022-01-02T12:00:00"
     },
     threeArticles: [
         {
@@ -12,21 +12,21 @@ const articlesFixtures = {
             "title": "article2",
             "explanation": "I exp article dos",
             "email": "abcdefgsundar@ucsb.edu",
-            "localDateTime": "2022-02-02T12:00:00"
+            "dateAdded": "2022-02-02T12:00:00"
         },
         {
             "id": 3,
             "title": "article3",
             "explanation": "I exp article tres",
             "email": "oogabooga@ucsb.edu",
-            "localDateTime": "2022-04-02T12:00:00"
+            "dateAdded": "2022-04-02T12:00:00"
         },
         {
             "id": 4,
             "title": "article4",
             "explanation": "I exp article quatro??",
             "email": "helpme@ucsb.edu",
-            "localDateTime": "2022-05-02T12:00:00"
+            "dateAdded": "2022-05-02T12:00:00"
         } 
     ]
 };
